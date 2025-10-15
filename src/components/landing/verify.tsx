@@ -11,14 +11,14 @@ export default function () {
       </p>
 
       <div className="flex justify-between items-center">
-        <div className="ml-48">
+        <div className="ml-60">
           <p>
             Ensure the validity of your import clearance <br />
             certificates in just a few clicks
           </p>
           <PrimaryButton title="verify certificate" className="mt-4" />
         </div>
-        <Image src={phone} alt="phone" width={500} />
+        <Image src={phone} alt="phone" width={300} className="-ml-12" />
       </div>
     </div>
   );
