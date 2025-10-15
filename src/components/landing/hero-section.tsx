@@ -41,14 +41,14 @@ export default function HeroSection() {
               src={Pana}
               alt="ship"
               className="mt-4 flex items-center"
-              // animate={{ x: [0, 20, 0] }}
-              // transition={{
-              //   duration: 5,
-              //   repeat: Infinity,
-              //   ease: "easeInOut",
-              // }}
+              animate={{ x: [0, 20, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
-            <div className="flex justify-center gap-x-4 -mt-18 absolute bottom-0 ">
+            <div className="flex justify-center -mr-30 gap-x-4 -mt-18 absolute bottom-0 ">
               <PrimaryButton title="Sign up" />
               <PrimaryButton
                 title="Log in"
