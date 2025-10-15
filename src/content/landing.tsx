@@ -27,12 +27,12 @@ export const heroContent = [
     image: People,
     description: "Trusted Users",
   },
-  //   {
-  //     id: 3,
-  //     number: "24/7",
-  //     image: Support,
-  //     description: "Customer Support",
-  //   },
+  {
+    id: 3,
+    number: "24/7",
+    image: Support,
+    description: "Customer Support",
+  },
 ];
 
 //Content for the Why section

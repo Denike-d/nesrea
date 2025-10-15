@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Why() {
   return (
-    <div className="bg-[#C1D7CB] py-2 px-20">
+    <div className="bg-[#C1D7CB] pt-2 pb-4 px-20">
       <h5 className="text-center text-black font-bold text-2xl">
         Why use NESREA system
       </h5>

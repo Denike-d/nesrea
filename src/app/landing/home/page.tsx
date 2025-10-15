@@ -19,9 +19,7 @@ export default function Home() {
           <Documents />
           <Clearance />
           <Verify />
-          <GradientLayout>
-            <Footer />
-          </GradientLayout>
+          <Footer />
         </section>
       </main>
     </div>

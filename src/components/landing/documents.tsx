@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Documents() {
   return (
-    <div className="bg-[#222222] px-24 py-12 relative overflow-hidden">
+    <div className="bg-[#222222] px-24 py-8 relative overflow-hidden">
       <h3 className="text-white text-center md:text-2xl">Documents</h3>
 
       {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 md:px-0">

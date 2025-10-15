@@ -10,7 +10,7 @@ export default function DesktopNavbar() {
         <Link href="/">
           <Image
             src={logo}
-            className="w-[95px] h-[53px] mr-12 mt-2"
+            className="w-[60px] h-[43px] mr-12 mt-2"
             alt="logo"
           />
         </Link>

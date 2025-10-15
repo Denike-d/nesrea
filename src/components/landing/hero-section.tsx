@@ -27,7 +27,7 @@ export default function HeroSection() {
             }}
           />
         </div>
-        <div className="-mt-2 items-center">
+        <div className="-mt-2 items-center ml-12">
           <h5 className="font-bold text-[35px] flex text-center ">
             Get Your Import Clearance <br /> in Record Time
           </h5>
@@ -58,17 +58,21 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="mr-8 mt-32">
+        <div className="mr-12 mt-32">
           {heroContent.map((item) => (
             <div className="mt-4">
               <div
                 key={item.id}
-                className="flex gap-y-6 bg-[#C1D7CB] p-2 rounded-[15px]"
+                className="flex items-center gap-y-4 bg-[#C1D7CB] p-2 rounded-[15px]"
               >
                 <div>
-                  <Image width={60} src={item.image} alt="cert" />
+                  <Image
+                    width={item.id === 3 ? 40 : 60}
+                    src={item.image}
+                    alt="cert"
+                  />
                 </div>
-                <div className="ml-2">
+                <div className="ml-4 text-center">
                   <p className="font-bold font-sm">{item.number}</p>
                   <p className="font-sm">{item.description}</p>
                 </div>
