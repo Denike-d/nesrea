@@ -58,12 +58,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="mr-12 mt-32">
+        <div className="mr-12 mt-24">
           {heroContent.map((item) => (
-            <div className="mt-4">
+            <div className="mt-2">
               <div
                 key={item.id}
-                className="flex items-center gap-y-4 bg-[#C1D7CB] p-2 rounded-[15px]"
+                className="flex items-center  bg-[#C1D7CB] p-2 rounded-[15px]"
               >
                 <div>
                   <Image
