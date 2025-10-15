@@ -4,11 +4,11 @@ import Image from "next/image";
 
 export default function Why() {
   return (
-    <div className="bg-[#C1D7CB] py-6 px-20">
+    <div className="bg-[#C1D7CB] py-2 px-20">
       <h5 className="text-center text-black font-bold text-2xl">
         Why use NESREA system
       </h5>
-      <div className="justify-between mx-20 mt-12 flex items-centre ">
+      <div className="justify-between mx-20 mt-8 flex items-centre ">
         {whyContent.map((item) => (
           <div
             key={item.id}

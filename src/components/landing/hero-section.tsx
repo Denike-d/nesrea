@@ -12,7 +12,7 @@ const MotionImage = motion(Image);
 export default function HeroSection() {
   return (
     <div>
-      <div className="pt-8 flex justify-between">
+      <div className="pt-8 flex justify-between pb-4">
         <div>
           <MotionImage
             src={Eclipse}
@@ -27,7 +27,7 @@ export default function HeroSection() {
             }}
           />
         </div>
-        <div className="-mt-4 items-center">
+        <div className="-mt-2 items-center">
           <h5 className="font-bold text-[35px] flex text-center ">
             Get Your Import Clearance <br /> in Record Time
           </h5>
@@ -35,9 +35,9 @@ export default function HeroSection() {
             We ensure compliance with environmental standards <br /> for a safer
             and cleaner Nigeria
           </p>
-          <div className=" relative items-center">
+          <div className=" relative items-center ml-8">
             <MotionImage
-              width={400}
+              width={370}
               src={Pana}
               alt="ship"
               className="mt-4 flex items-center"
@@ -48,7 +48,7 @@ export default function HeroSection() {
                 ease: "easeInOut",
               }}
             />
-            <div className="flex justify-center -mr-30 gap-x-4 -mt-18 absolute bottom-0 ">
+            <div className="flex justify-center ml-12 gap-x-4 -mt-18 absolute bottom-0 ">
               <PrimaryButton title="Sign up" />
               <PrimaryButton
                 title="Log in"
