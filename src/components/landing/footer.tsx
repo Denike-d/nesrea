@@ -4,6 +4,7 @@ import Message from "../../../public/icons/Message.svg";
 import Call from "../../../public/icons/Call.svg";
 import i4logo from "../../../public/images/i4logo.png";
 import GradientLayout from "./uikits/GradientLayout";
+import FooterBanner from "./footer-banner";
 export default function () {
   return (
     <div>
@@ -38,10 +39,7 @@ export default function () {
           </div>
         </div>
       </GradientLayout>
-      <div className="bg-[#C1D7CB] flex justify-center py-2 items-center">
-        <p className="text-black text-sm">Powered by:</p>
-        <Image src={i4logo} alt="i4logo" width={30} className="ml-2" />
-      </div>
+      <FooterBanner />
     </div>
   );
 }

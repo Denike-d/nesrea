@@ -22,13 +22,13 @@ export default function () {
         className="pointer-events-none select-none absolute bottom-0 left-0 opacity-70 z-0"
         aria-hidden
       />
-      <p className="text-center font-semibold md:text-3xl">
+      <p className="text-center font-semibold md:text-3xl text-white">
         Verify your certificates with ease
       </p>
 
       <div className="flex justify-between items-center">
         <div className="ml-60">
-          <p className="text-xl">
+          <p className="text-xl text-white">
             Ensure the validity of your import clearance <br />
             certificates in just a few clicks
           </p>

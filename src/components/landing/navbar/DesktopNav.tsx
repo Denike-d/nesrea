@@ -1,22 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../../public/images/logo.png";
+import nesrea from "../../../../public/images/nesrea.png";
 import PrimaryButton from "../uikits/PrimaryButton";
 
 export default function DesktopNavbar() {
   return (
-    <div className="flex justify-center mx-auto max-h-screen bg-[#D5E6DD]">
+    <div className="flex justify-center mx-auto max-h-screen bg-[#D5E6DD] py-2">
       <nav className="hidden md:flex space-x-8 items-center text-black">
         <Link href="/">
           <Image
-            src={logo}
+            src={nesrea}
             className="w-[60px] h-[43px] mr-12 mt-2"
             alt="logo"
           />
         </Link>
         <ul className="flex gap-6">
           <li>
-            <Link href="#home" className="">
+            <Link href="/landing/home" className="">
               Home
             </Link>
           </li>
@@ -41,7 +42,7 @@ export default function DesktopNavbar() {
             </Link>
           </li>
         </ul>
-        <PrimaryButton title="Verify Certificate" />
+        <PrimaryButton title="Verify Certificate" className="text-white" />
       </nav>
     </div>
   );
