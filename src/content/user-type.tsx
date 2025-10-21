@@ -46,7 +46,7 @@ export const userType = [
       "Imports are for public or institutional use only",
     ],
     requiredDocs: ["Government Agency ID"],
-    fee: "FREE",
+    fee: "Not Applicable",
     bgColor: "bg-green-50",
   },
 ];

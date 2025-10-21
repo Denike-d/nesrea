@@ -62,9 +62,7 @@ export default function SignUpPage() {
           <p className="text-lg mt-4">Create your Account</p>
 
           {success ? (
-            <p className="text-green-600 text-center font-medium">
-              🎉 Account created successfully!
-            </p>
+            <Link href="/login" />
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div>
@@ -87,7 +85,7 @@ export default function SignUpPage() {
                 </label>
                 <div className="relative flex justify-between">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Enter password"
                     value={formData.password}
@@ -110,7 +108,7 @@ export default function SignUpPage() {
                 </label>
                 <div className="relative flex justify-between">
                   <input
-                    type="password"
+                    type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     placeholder="Re-enter password"
                     value={formData.confirmPassword}
@@ -122,7 +120,11 @@ export default function SignUpPage() {
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     className="absolute inset-y-0 right-3 flex items-center text-white"
                   >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showConfirmPassword ? (
+                      <EyeOff size={20} />
+                    ) : (
+                      <Eye size={20} />
+                    )}
                   </button>
                 </div>
               </div>
@@ -132,6 +134,7 @@ export default function SignUpPage() {
               <div className="flex items-center justify-center mt-6">
                 <PrimaryButton
                   title="Create an account"
+                  href="/login"
                   className="bg-white text-black text-bold text-lg items-center justify-center w-[400px] h-[50px] p-8"
                 />
               </div>

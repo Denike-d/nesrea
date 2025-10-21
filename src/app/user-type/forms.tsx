@@ -14,8 +14,10 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
+  resiaddress: string;
   address: string;
   additionalInfo: string;
+  nin: string;
   document: File | null;
 }
 
@@ -27,7 +29,9 @@ export default function RegistrationForm({
     name: "",
     email: "",
     phone: "",
+    resiaddress: "",
     address: "",
+    nin: "",
     additionalInfo: "",
     document: null,
   });
@@ -82,8 +86,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="email"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter you email"
@@ -96,8 +100,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="nin"
+                value={formData.nin}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter your NIN"
@@ -110,8 +114,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="phone"
+                value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter your contact address"
@@ -123,7 +127,8 @@ export default function RegistrationForm({
                 Residential Address
               </label>
               <textarea
-                name="address"
+                typeof="text"
+                name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -187,9 +192,9 @@ export default function RegistrationForm({
                     Phone Number
                   </label>
                   <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
+                    type="number"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder=""
@@ -202,8 +207,8 @@ export default function RegistrationForm({
                   </label>
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="address"
+                    value={formData.additionalInfo}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder=""
@@ -237,8 +242,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="email"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter you email"
@@ -252,8 +257,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="nin"
+                value={formData.nin}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter ID number"
@@ -267,8 +272,8 @@ export default function RegistrationForm({
               </label>
               <input
                 type="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="phone"
+                value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter your contact address"
@@ -280,7 +285,8 @@ export default function RegistrationForm({
                 Residential Address
               </label>
               <textarea
-                name="address"
+                typeof="text"
+                name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -329,10 +335,10 @@ export default function RegistrationForm({
               </label>
               <input
                 type="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
+                name="address"
+                value={formData.address}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent"
                 placeholder="Enter registration number"
                 required
               />
@@ -363,8 +369,8 @@ export default function RegistrationForm({
                 </label>
                 <input
                   type="text"
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Enter registration number"
@@ -375,13 +381,13 @@ export default function RegistrationForm({
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Residential Address
                 </label>
-                <input
-                  type="text"
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
+                <textarea
+                  typeof="text"
+                  name="resiaddress"
+                  value={formData.resiaddress}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter registration number"
+                  placeholder="Enter your address"
                   required
                 />
               </div>

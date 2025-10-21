@@ -75,7 +75,7 @@ export default function SignUpPage() {
                 </label>
                 <div className="relative flex justify-between">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Enter password"
                     value={formData.password}
