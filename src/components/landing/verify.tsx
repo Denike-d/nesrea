@@ -32,7 +32,7 @@ export default function () {
             Ensure the validity of your import clearance <br />
             certificates in just a few clicks
           </p>
-          <PrimaryButton title="verify certificate" className="mt-4" />
+          <PrimaryButton title="verify certificate" href="" className="mt-4" />
         </div>
         <Image src={phone} alt="phone" width={350} className="mr-32" />
       </div>

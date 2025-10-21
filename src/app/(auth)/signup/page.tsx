@@ -48,11 +48,11 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="h-screen bg-[#608370] ">
+    <div className="bg-[#608370] ">
       <Header />
       <div className="flex justify-between text-white items-center px-32 py-4">
         <div className="">
-          <h1 className="items-centre text-center justify-center text-4xl font-bold mb-2">
+          <h1 className="items-centre text-center text-4xl font-bold mb-2">
             NICS
           </h1>
           <h2 className="text-xl font-semibold mb-4">
@@ -132,10 +132,10 @@ export default function SignUpPage() {
               <div className="flex items-center justify-center mt-6">
                 <PrimaryButton
                   title="Create an account"
-                  className="bg-white text-black text-bold items-center justify-center w-[400px] h-[50px] p-8"
+                  className="bg-white text-black text-bold text-lg items-center justify-center w-[400px] h-[50px] p-8"
                 />
               </div>
-              <p className="text-center text-gray-800">
+              <p className="text-center text-sm">
                 Already have an account?{" "}
                 <Link
                   href="/login"

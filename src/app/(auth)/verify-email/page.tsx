@@ -7,14 +7,15 @@ import React from "react";
 
 export default function verifyEmail() {
   return (
-    <div className="min-h-screen  bg-[#608370]">
+    <div className="min-h-screen bg-[#608370]">
       <Header />
       <div>
-        <div className="flex text-white justify-center items-center mt-12 bg-[#608370] ">
+        <div className="flex text-white justify-center items-center my-12">
           <div>
-            <h3 className="flex text-centre text-2xl">
-              NICS <br /> NESREA IMPORT CLEARANCE SYSTEM
-            </h3>
+            <h1 className="text-centre text-4xl font-bold mb-2">NICS</h1>
+            <h2 className="text-xl font-semibold text-centre mb-4">
+              NESREA IMPORT CLEARANCE SYSTEM
+            </h2>
             <p className="text-center mt-8 text-lg">Verify your email</p>
             <p className="text-centre mt-4">
               An OTP has been sent to example@domain.com <br />
@@ -31,7 +32,7 @@ export default function verifyEmail() {
             <div className="flex items-center justify-center mt-12">
               <PrimaryButton
                 title="Verify Email"
-                className="w-[200px] items-center justify-center"
+                className="w-[400px] h-[50px] items-center justify-center"
               />
             </div>
           </div>

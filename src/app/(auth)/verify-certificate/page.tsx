@@ -34,27 +34,28 @@ export default function page() {
     console.log("Form submitted:", formData);
   };
   return (
-    <div className="h-screen bg-[#608370]">
+    <div className="min-h-screen bg-[#608370]">
       <Header />
-      <div className="flex justify-between text-white items-center px-20 py-4">
+      <div className="flex justify-between text-white items-center mx-auto px-32 py-4">
         <div className="">
-          <h1 className="items-centre text-center justify-center text-4xl font-bold mb-2">
-            NICS
-          </h1>
-          <h2 className="text-xl font-semibold mb-4">
-            NESREA IMPORT CLEARANCE SYSTEM
-          </h2>
-
-          <p className="text-lg mt-4">
-            Enter your certificate information to confirm its authenticity
-          </p>
+          <div>
+            <h1 className="items-centre text-center justify-center text-4xl font-bold mb-2 ml-[-75px]">
+              NICS
+            </h1>
+            <h2 className="text-xl font-semibold mb-4">
+              NESREA IMPORT CLEARANCE SYSTEM
+            </h2>
+            <p className="text-md mt-4">
+              Enter your certificate information to confirm its authenticity
+            </p>
+          </div>
 
           {success ? (
             <p className="text-green-600 text-center font-medium">
               🎉 Account created successfully!
             </p>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+            <form onSubmit={handleSubmit} className="space-y-4 mt-6">
               <div>
                 <label className="block text-sm font-medium mb-1">
                   NESREA ID
@@ -97,20 +98,19 @@ export default function page() {
               {error && <p className="text-red-500 text-sm">{error}</p>}
 
               <div className="mt-4">
-                <div className="flex items-center justify-center">
+                <div className="flex items-center mt-6">
                   <PrimaryButton
-                    title="Verify Certificate"
+                    title="Create an account"
                     className="bg-white text-black text-bold items-center justify-center w-[400px] h-[50px] p-8"
                   />
                 </div>
-
-                <p className="text-center text-white mt-2 ">
-                  Don't have an account?{" "}
+                <p className="text-sm text-center mt-2 ml-[-65px]">
+                  Already have an account?{" "}
                   <Link
-                    href="/signup"
-                    className="font-semibold hover:underline"
+                    href="/login"
+                    className="text-white font-semibold hover:underline"
                   >
-                    Create an account
+                    Login
                   </Link>
                 </p>
               </div>

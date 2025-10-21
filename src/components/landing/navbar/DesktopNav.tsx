@@ -42,7 +42,11 @@ export default function DesktopNavbar() {
             </Link>
           </li>
         </ul>
-        <PrimaryButton title="Verify Certificate" className="text-white" />
+        <PrimaryButton
+          title="Verify Certificate"
+          href="/verify-certificate"
+          className="text-white"
+        />
       </nav>
     </div>
   );

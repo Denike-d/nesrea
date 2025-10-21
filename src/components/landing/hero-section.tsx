@@ -47,9 +47,13 @@ export default function HeroSection() {
               ease: "easeInOut",
             }}
           />
-          <div className="flex justify-center ml-12 gap-x-4 -mt-18 absolute bottom-0 ">
-            <PrimaryButton title="Sign up" />
-            <PrimaryButton title="Log in" className="bg-transparent border-2" />
+          <div className="flex justify-center items-center ml-12 gap-x-4 -mt-18 absolute bottom-0 ">
+            <PrimaryButton title="Sign up" href="/signup" />
+            <PrimaryButton
+              title="Log in"
+              href="/login"
+              className="bg-transparent border-2"
+            />
           </div>
         </div>
       </div>

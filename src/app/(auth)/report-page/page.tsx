@@ -34,18 +34,22 @@ export default function page() {
     console.log("Form submitted:", formData);
   };
   return (
-    <div className="h-screen bg-[#608370] ">
+    <div className="min-h-screen bg-[#608370] ">
       <Header />
-      <div className="flex justify-between text-white items-center px-20 py-4">
-        <div className="">
-          <h3 className="items-centre text-centre justify-center text-lg">
-            NICS
-            <br />
-            NESREA IMPORT CLEARANCE SYSTEM
-          </h3>
-          <p className="text- font-semibold mt-4">
-            Enter your certificate information to confirm its authenticity
-          </p>
+      <div className="flex justify-between text-white items-center px-32 py-4">
+        <div>
+          <div>
+            <h1 className="text-center items-centre text-4xl font-bold mb-2">
+              NICS
+            </h1>
+            <h2 className="text-xl font-semibold mb-4">
+              NESREA IMPORT CLEARANCE SYSTEM
+            </h2>
+
+            <p className="text-sm mt-4">
+              Enter your certificate information to confirm its authenticity
+            </p>
+          </div>
 
           {success ? (
             <p className="text-green-600 text-center font-medium">
@@ -94,23 +98,21 @@ export default function page() {
 
               {error && <p className="text-red-500 text-sm">{error}</p>}
 
-              <div className="mt-4">
-                <div className="flex items-center justify-center">
-                  <PrimaryButton
-                    title="Verify Certificate"
-                    className="bg-white text-black text-bold items-center justify-center"
-                  />
-                </div>
-
-                <div className="flex items-center mt-4">
-                  <p className="text-sm text-centre mt-2">
-                    Don't have an account?
-                  </p>
-                  <Link href="/signup" className="text-sm">
-                    Create account
-                  </Link>
-                </div>
+              <div className="flex items-center mt-6">
+                <PrimaryButton
+                  title="Create an account"
+                  className="bg-white text-black text-bold items-center justify-center w-[400px] h-[50px] p-8"
+                />
               </div>
+              <p className="text-sm text-center">
+                Already have an account?{" "}
+                <Link
+                  href="/login"
+                  className="text-white font-semibold hover:underline"
+                >
+                  Login
+                </Link>
+              </p>
             </form>
           )}
         </div>

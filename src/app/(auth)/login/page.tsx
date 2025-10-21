@@ -41,9 +41,7 @@ export default function SignUpPage() {
       <Header />
       <div className="flex justify-between text-white items-center  px-32 py-4">
         <div className="">
-          <h1 className="items-centre text-center justify-center text-4xl font-bold mb-2">
-            NICS
-          </h1>
+          <h1 className="text-center text-4xl font-bold mb-2">NICS</h1>
           <h2 className="text-xl font-semibold mb-4">
             {" "}
             NESREA IMPORT CLEARANCE SYSTEM
@@ -100,11 +98,12 @@ export default function SignUpPage() {
                 <div className="flex items-center justify-center mt-8">
                   <PrimaryButton
                     title="Login"
+                    href="/user-type"
                     className="bg-white text-black text-bold items-center justify-center w-[400px] h-[50px] p-8"
                   />
                 </div>
 
-                <p className="text-center text-white mt-2 ">
+                <p className="text-center text-sm text-white mt-2 ">
                   Don't have an account?{" "}
                   <Link
                     href="/signup"
