@@ -40,12 +40,12 @@ export default function ProfileType() {
         <h3 className="font-bold text-xl text-black text-center mt-2">
           Choose your user type
         </h3>
-        <div className="min-h-screen p-8 flex justify-center">
-          <div className="flex flex-row gap-6 w-full max-w-6xl">
+        <div className="">
+          <div className="gap-6 w-full max-w-7xl p-8 grid md:grid-cols-2 lg:grid-cols-4">
             {userType.map((profile) => (
               <div
                 key={profile.id}
-                className={`bg-[#E7F2EC] rounded-lg shadow-md flex-1 min-w-0 h-[420px] flex flex-col`}
+                className={`bg-[#E7F2EC] rounded-lg shadow-md rounded-2xl flex-1 min-w-0 h-[420px] flex flex-col transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg cursor-pointer`}
               >
                 <div className="bg-[url('/images/curve.png')] bg-cover p-4 w-full bg-no-repeat bg-top rounded-b-lg">
                   {/* <Image src={rectangle} className="w-full" alt="rectangle" /> */}
@@ -94,7 +94,7 @@ export default function ProfileType() {
                 ))}
               </ul>
             </div> */}
-                <div className="mt-auto mx-4 mb-2">
+                <div className="mt-auto mx-4 mb-4">
                   <PrimaryButton
                     href=""
                     title="Choose Profile"
