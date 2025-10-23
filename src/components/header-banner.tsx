@@ -4,7 +4,7 @@ import nesrea from "../../public/images/nesrea.png";
 export default function HeaderBanner() {
   return (
     <div className="pt-2">
-      <div className="flex items-center justify-between bg-[#f7f9f6] px-2 py-6 rounded-md shadow-sm max-w-xl mx-auto ">
+      <div className="flex items-center justify-between bg-[#f7f9f6] px-2 py-4 rounded-md shadow-sm max-w-4xl mx-auto ">
         <div className="flex items-center gap-2">
           <Image src={nesrea} alt="nesrea logo" width={65} />
         </div>

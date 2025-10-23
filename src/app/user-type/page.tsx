@@ -41,11 +41,11 @@ export default function ProfileType() {
           Choose your user type
         </h3>
         <div className="">
-          <div className="gap-6 w-full max-w-7xl p-8 grid md:grid-cols-2 lg:grid-cols-4">
+          <div className="gap-6 w-full max-w-7xl p-8 grid md:grid-cols-2 lg:grid-cols-4 justify-center">
             {userType.map((profile) => (
               <div
                 key={profile.id}
-                className={`bg-[#E7F2EC] rounded-lg shadow-md rounded-2xl flex-1 min-w-0 h-[420px] flex flex-col transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg cursor-pointer`}
+                className={`bg-[#E7F2EC] shadow-md rounded-2xl flex-1 min-w-0 h-[420px] flex flex-col transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg cursor-pointer`}
               >
                 <div className="bg-[url('/images/curve.png')] bg-cover p-4 w-full bg-no-repeat bg-top rounded-b-lg">
                   {/* <Image src={rectangle} className="w-full" alt="rectangle" /> */}

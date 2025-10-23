@@ -58,7 +58,7 @@ export default function RegistrationForm({
     e.preventDefault();
     console.log("Form submitted for:", profileType, formData);
     alert(`${profileType} registration submitted successfully!`);
-    // Here you would typically send the data to your backend API
+    //send the data to the backend API
   };
 
   const getFormFields = () => {
@@ -82,7 +82,7 @@ export default function RegistrationForm({
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                Email Address
               </label>
               <input
                 type="email"
@@ -96,7 +96,7 @@ export default function RegistrationForm({
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                NIN
+                National Identification Number(NIN)
               </label>
               <input
                 type="text"
@@ -120,6 +120,19 @@ export default function RegistrationForm({
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter your contact address"
                 required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Association
+              </label>
+              <textarea
+                typeof="text"
+                name="additionalInfo"
+                value={formData.additionalInfo}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter your address"
               />
             </div>
             <div>
@@ -238,7 +251,7 @@ export default function RegistrationForm({
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                Email Address
               </label>
               <input
                 type="email"
@@ -253,7 +266,7 @@ export default function RegistrationForm({
             <div></div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                NIN
+                National Identity Number (NIN)
               </label>
               <input
                 type="text"
@@ -400,7 +413,7 @@ export default function RegistrationForm({
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex justify-center">
+    <div className="bg-[url('/images/rectangle.png')] bg-cover p-8 flex justify-center">
       <div className="w-full max-w-2xl">
         <button
           onClick={onBack}
@@ -410,10 +423,10 @@ export default function RegistrationForm({
         </button>
 
         <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-2">
+          <h1 className="text-3xl font-bold mb-2 text-black">
             {profileType} Registration
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-black mb-6">
             Please fill out the form below to register as a{" "}
             {profileType?.toLowerCase()}.
           </p>
