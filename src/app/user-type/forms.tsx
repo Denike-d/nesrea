@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { ProfileType } from "./page";
 import PrimaryButton from "@/components/landing/uikits/PrimaryButton";
+import HeaderBanner from "@/components/header-banner";
 
 interface RegistrationFormProps {
   profileType: ProfileType;
@@ -413,51 +414,54 @@ export default function RegistrationForm({
   };
 
   return (
-    <div className="bg-[url('/images/rectangle.png')] bg-cover p-8 flex justify-center">
-      <div className="w-full max-w-2xl">
-        <button
-          onClick={onBack}
-          className="mb-6 text-green-700 font-medium flex items-center gap-2"
-        >
-          ← Back to profiles
-        </button>
+    <div className="bg-[url('/images/rectangle.png')] bg-cover ">
+      <HeaderBanner />
+      <div className="p-8 flex justify-center">
+        <div className="w-full max-w-2xl">
+          <button
+            onClick={onBack}
+            className="mb-6 text-green-700 font-medium flex items-center gap-2"
+          >
+            ← Back to profiles
+          </button>
 
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-2 text-black">
-            {profileType} Registration
-          </h1>
-          <p className="text-black mb-6">
-            Please fill out the form below to register as a{" "}
-            {profileType?.toLowerCase()}.
-          </p>
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <h1 className="text-3xl font-bold mb-2 text-black">
+              {profileType} Registration
+            </h1>
+            <p className="text-black mb-6">
+              Please fill out the form below to register as a{" "}
+              {profileType?.toLowerCase()}.
+            </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {getFormFields()}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {getFormFields()}
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Upload Document (NIN, CAC, TIN, or Government ID — if
-                applicable)
-              </label>
-              <input
-                type="file"
-                onChange={handleFileChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                required
-              />
-              {formData.document && (
-                <p className="mt-2 text-sm text-gray-600">
-                  Selected: {formData.document.name}
-                </p>
-              )}
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Upload Document (NIN, CAC, TIN, or Government ID — if
+                  applicable)
+                </label>
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                  required
+                />
+                {formData.document && (
+                  <p className="mt-2 text-sm text-gray-600">
+                    Selected: {formData.document.name}
+                  </p>
+                )}
+              </div>
 
-            <PrimaryButton
-              title="Submit Registration"
-              className="w-full text-white"
-            ></PrimaryButton>
-          </form>
+              <PrimaryButton
+                title="Submit Registration"
+                className="w-full text-white"
+              ></PrimaryButton>
+            </form>
+          </div>
         </div>
       </div>
     </div>
