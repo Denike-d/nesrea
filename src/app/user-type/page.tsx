@@ -4,6 +4,10 @@ import { userType } from "@/content/user-type";
 import { useState } from "react";
 import RegistrationForm from "./forms";
 import { Check } from "lucide-react";
+import Image from "next/image";
+import rectangle from "../../../public/images/rectangle.png";
+import curve from "../../../public/images/curve.png";
+import HeaderBanner from "@/components/header-banner";
 
 export type ProfileType =
   | "Agent"
@@ -30,31 +34,54 @@ export default function ProfileType() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex justify-center">
-      <div className="flex flex-row gap-6 w-full max-w-6xl">
-        {userType.map((profile) => (
-          <div
-            key={profile.id}
-            className={`${profile.bgColor} rounded-lg shadow-md p-6 flex-1 min-w-0 flex flex-col`}
-          >
-            <h2 className="text-xl font-bold mb-2">{profile.title}</h2>
-            <p className="text-gray-600 mb-6 text-sm">{profile.description}</p>
-            <div className="mb-4">
-              <h3 className="text-sm font-bold text-gray-900 mb-2">
-                Eligibility:
-              </h3>
-              <ul className="space-y-2">
-                {profile.eligibility.map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs text-gray-700 leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mb-4">
+    <>
+      <div className="bg-[url('/images/rectangle.png')] bg-cover">
+        <HeaderBanner />
+        <h3 className="font-bold text-xl text-black text-center mt-2">
+          Choose your user type
+        </h3>
+        <div className="min-h-screen p-8 flex justify-center">
+          <div className="flex flex-row gap-6 w-full max-w-6xl">
+            {userType.map((profile) => (
+              <div
+                key={profile.id}
+                className={`bg-[#E7F2EC] rounded-lg shadow-md flex-1 min-w-0 h-[420px] flex flex-col`}
+              >
+                <div className="bg-[url('/images/curve.png')] bg-cover p-4 w-full bg-no-repeat bg-top rounded-b-lg">
+                  {/* <Image src={rectangle} className="w-full" alt="rectangle" /> */}
+                  <h2 className="text-xl font-bold mb-2 text-black">
+                    {profile.title}
+                  </h2>
+                  <p className="text-black mb-6 text-sm">
+                    {profile.description}
+                  </p>
+                  <div className="text-sm text-black mb-4">
+                    <p className="text-sm">
+                      Registration Fee: <br />
+                      <span className="text-[20px] font-bold">
+                        {profile.fee}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4">
+                  <h3 className="text-sm font-bold text-gray-900 mb-2">
+                    Eligibility:
+                  </h3>
+                  <ul className="space-y-2">
+                    {profile.eligibility.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-gray-700 leading-relaxed">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* <div className="mb-4">
               <h3 className="text-sm font-bold text-gray-900 mt-4">
                 Required Document:
               </h3>
@@ -66,24 +93,20 @@ export default function ProfileType() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="mt-auto pt-4">
-              <div className="text-sm text-gray-700 mb-4">
-                <p className="font-bold text-[14px]">
-                  Registration Fee: {profile.fee}
-                </p>
+            </div> */}
+                <div className="mt-auto mx-4 mb-2">
+                  <PrimaryButton
+                    href=""
+                    title="Choose Profile"
+                    onClick={() => handleCardClick(profile.id as ProfileType)}
+                    className="text-white bottom w-full"
+                  />
+                </div>
               </div>
-              <PrimaryButton
-                href=""
-                title="Choose Profile"
-                onClick={() => handleCardClick(profile.id as ProfileType)}
-                className="text-white bottom w-full"
-              />
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

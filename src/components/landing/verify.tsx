@@ -1,4 +1,3 @@
-import React from "react";
 import PrimaryButton from "./uikits/PrimaryButton";
 import Image from "next/image";
 import phone from "../../../public/images/phone.png";

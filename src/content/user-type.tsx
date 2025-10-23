@@ -2,15 +2,14 @@ export const userType = [
   {
     id: "Individual",
     title: "INDIVIDUAL",
-    description:
-      "For private citizens importing personal or small-scale non-commercial items",
+    description: "For individuals importing non-commercial items",
     eligibility: [
-      "Importing for personal use ( non-commercial)",
+      "Importing for personal use (non-commercial)",
       "Must have valid identification ( NIN or international passport)",
     ],
     requiredDocs: ["Valid NIN"],
     fee: "35,000 Naira",
-    bgColor: "bg-gray-50",
+    bgColor: "rgba(231, 242, 236, 1)",
   },
 
   {
@@ -23,7 +22,7 @@ export const userType = [
     ],
     requiredDocs: ["Valid NIN or passport"],
     fee: "35,000 Naira",
-    bgColor: "bg-green-50",
+    bgColor: "rgba(231, 242, 236, 1)",
   },
   {
     id: "Company",
