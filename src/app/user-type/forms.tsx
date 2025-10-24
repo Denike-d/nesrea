@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ProfileType } from "./page";
 import PrimaryButton from "@/components/landing/uikits/PrimaryButton";
 import HeaderBanner from "@/components/header-banner";
+import { Asterisk } from "lucide-react";
 
 interface RegistrationFormProps {
   profileType: ProfileType;
@@ -20,6 +21,15 @@ interface FormData {
   additionalInfo: string;
   nin: string;
   document: File | null;
+}
+
+function LabelWithRequired({ label }: { label: string; className: string }) {
+  return (
+    <label className="flex items-center gap-1 text-sm font-medium text-gray-700">
+      {label}
+      <Asterisk className="w-3 h-3 text-red-500" />
+    </label>
+  );
 }
 
 export default function RegistrationForm({
@@ -68,57 +78,65 @@ export default function RegistrationForm({
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
+              <LabelWithRequired
+                label="Full Name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter agent name"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 placeholder:text-gray-200 placeholder:text-sm focus:border-transparent"
+                placeholder="Surname, First Name, Middle Name"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
+              <LabelWithRequired
+                label="Email Address"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter you email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="example@gmail.com"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                National Identification Number(NIN)
-              </label>
+              <LabelWithRequired
+                label=" National Identification Number(NIN)"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="nin"
                 value={formData.nin}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your NIN"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="1234567890"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number
-              </label>
+              <LabelWithRequired
+                label=" Phone Number"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent"
                 placeholder="Enter your contact address"
                 required
               />
@@ -127,28 +145,49 @@ export default function RegistrationForm({
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Association
               </label>
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="08011223344"
+                required
+              />
+            </div>
+            <div>
+              <LabelWithRequired
+                label=" Residential Address"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <textarea
                 typeof="text"
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your address"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="Number 1, ABC Close, Abuja"
+                required
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Residential Address
+                Upload Document (NIN, CAC, TIN, or Government ID — if
+                applicable)
               </label>
-              <textarea
-                typeof="text"
-                name="additionalInfo"
-                value={formData.additionalInfo}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your address"
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                 required
               />
+              {formData.document && (
+                <p className="mt-2 text-sm text-gray-600">
+                  Selected: {formData.document.name}
+                </p>
+              )}
             </div>
           </>
         );
@@ -156,29 +195,33 @@ export default function RegistrationForm({
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Institution/Agency Name
-              </label>
+              <LabelWithRequired
+                label="Institution/Agency Name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter Agency name"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="Ministry of Housing"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Official Government ID
-              </label>
+              <LabelWithRequired
+                label="Official Government ID"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter government ID"
                 required
               />
@@ -188,29 +231,33 @@ export default function RegistrationForm({
               <h3 className="font-semibold">Contact Person's Information</h3>
               <div className="mt-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Contact Person's Name
-                  </label>
+                  <LabelWithRequired
+                    label="Contact Person's Name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  />
+
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                     placeholder=""
                     required
                   />
                 </div>
                 <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
-                  </label>
+                  <LabelWithRequired
+                    label="Phone Number"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  />
+
                   <input
                     type="number"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                     placeholder=""
                     required
                   />
@@ -224,7 +271,7 @@ export default function RegistrationForm({
                     name="address"
                     value={formData.additionalInfo}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                     placeholder=""
                     required
                   />
@@ -237,59 +284,67 @@ export default function RegistrationForm({
         return (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
+              <LabelWithRequired
+                label="Full Name"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter your full name"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
+              <LabelWithRequired
+                label="Email Address"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter you email"
                 required
               />
             </div>
             <div></div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                National Identity Number (NIN)
-              </label>
+              <LabelWithRequired
+                label="National Identity Number (NIN)"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="nin"
                 value={formData.nin}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter ID number"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number
-              </label>
+              <LabelWithRequired
+                label="Phone Number"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
               <input
                 type="text"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter your contact address"
                 required
               />
@@ -303,10 +358,29 @@ export default function RegistrationForm({
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter your address"
                 required
               />
+            </div>
+            <div>
+              <LabelWithRequired
+                label="Uplaod NIN"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                required
+              />
+              {formData.document && (
+                <p className="mt-2 text-sm text-gray-600">
+                  Selected: {formData.document.name}
+                </p>
+              )}
             </div>
           </>
         );
@@ -324,7 +398,7 @@ export default function RegistrationForm({
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter company name"
                 required
               />
@@ -338,8 +412,8 @@ export default function RegistrationForm({
                 name="additionalInfo"
                 value={formData.additionalInfo}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter registration number"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
+                placeholder="1234567890"
                 required
               />
             </div>
@@ -352,10 +426,29 @@ export default function RegistrationForm({
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                 placeholder="Enter registration number"
                 required
               />
+            </div>
+            <div>
+              <LabelWithRequired
+                label="Upload CAC/TIN document"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              />
+
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                required
+              />
+              {formData.document && (
+                <p className="mt-2 text-sm text-gray-600">
+                  Selected: {formData.document.name}
+                </p>
+              )}
             </div>
 
             {/*Section Two */}
@@ -372,7 +465,7 @@ export default function RegistrationForm({
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                   placeholder="Enter company name"
                   required
                 />
@@ -386,7 +479,7 @@ export default function RegistrationForm({
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                   placeholder="Enter registration number"
                   required
                 />
@@ -400,7 +493,7 @@ export default function RegistrationForm({
                   name="resiaddress"
                   value={formData.resiaddress}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-200 placeholder:text-sm"
                   placeholder="Enter your address"
                   required
                 />
@@ -437,29 +530,16 @@ export default function RegistrationForm({
             <form onSubmit={handleSubmit} className="space-y-6">
               {getFormFields()}
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Upload Document (NIN, CAC, TIN, or Government ID — if
-                  applicable)
-                </label>
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                  required
+              <div className="flex justify-between">
+                <PrimaryButton
+                  title="Save and Continue Later"
+                  className=" text-[#10793F] border-[#10793F] border-2 bg-transparent text-sm"
                 />
-                {formData.document && (
-                  <p className="mt-2 text-sm text-gray-600">
-                    Selected: {formData.document.name}
-                  </p>
-                )}
+                <PrimaryButton
+                  title="Proceed to Pay"
+                  className=" text-white text-sm w-[250px]"
+                />
               </div>
-
-              <PrimaryButton
-                title="Submit Registration"
-                className="w-full text-white"
-              ></PrimaryButton>
             </form>
           </div>
         </div>
